@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 if ! hash realpath; then
 	echo "realpath not installed!";
