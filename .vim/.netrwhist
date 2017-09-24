@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/local/ANT/amurthy/drno/kernel/mediatek/mt8163/3.18/drivers'
+let g:netrw_dirhist_2='/home/local/ANT/amurthy/drno/kernel/mediatek/mt8163/3.18/drivers/misc/mediatek/pwm'
+let g:netrw_dirhist_3='/home/local/ANT/amurthy/new_builds_sonar_biscuit/release-full_biscuit-272.5.5.0_userdebug_550674710/scripts'
+let g:netrw_dirhist_4='/home/local/ANT/amurthy/eeos/vendor/amazon/ledd/include'
+let g:netrw_dirhist_5='/home/local/ANT/amurthy/prod_signed_test/bootable/bootloader/uboot-imx/include/configs'
+let g:netrw_dirhist_6='/home/local/ANT/amurthy/prod_signed_test/kernel_imx/arch/arm/boot/dts'
+let g:netrw_dirhist_7='/home/local/ANT/amurthy/drno/kernel/mediatek/mt8163/3.18/pwm_patch'
+let g:netrw_dirhist_8='/Users/amurthy/workspace/AlexaVoiceAndroid/src/AlexaVoiceAndroid-sample-app/src/main/jni/include'
