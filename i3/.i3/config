@@ -171,5 +171,3 @@ exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id gnome-screensaver
 for_window [window_role="pop-up"] floating enable
 focus_follows_mouse no
-exec --no-startup-id xrandr --output DP1 --rotate left
-exec --no-startup-id xrandr --output DP1 --right-of DP2-8
