@@ -9,6 +9,11 @@ if ! hash fzf; then
 	~/.fzf/install
 fi
 
+if ! hash playerctl; then
+	echo "install playerctl!";
+	exit 1;
+fi
+
 if [ ! -e ~/.signature ]; then
 	ln -s "$DIR/.signature" ~/;
 fi
