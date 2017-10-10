@@ -1,0 +1,7 @@
+[core]
+	editor = vim
+	pager = less -FMRiX
+[color]
+	ui = auto
+[alias]
+	edit = !$(git-config core.editor) $(git status --short | awk '$1 ~ /^M|A|U/ {print $2}' )
