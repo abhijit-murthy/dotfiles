@@ -171,6 +171,7 @@ mode "$mode_system" {
 bindsym $mod+Shift+Escape mode "$mode_system"
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id gnome-screensaver
+exec --no-startup-id pasystray
 for_window [window_role="pop-up"] floating enable
 focus_follows_mouse no
 bindsym XF86AudioPlay exec playerctl play-pause

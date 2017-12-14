@@ -14,6 +14,11 @@ if ! hash playerctl; then
 	exit 1;
 fi
 
+if ! hash pasystray; then
+	echo "install pasystray!";
+	exit 1;
+fi
+
 if [ ! -e ~/.signature ]; then
 	ln -s "$DIR/.signature" ~/;
 fi
