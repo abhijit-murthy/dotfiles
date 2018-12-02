@@ -5,7 +5,7 @@ if ! hash realpath; then
 	exit 1;
 fi
 
-packages="bash env i3 tmux vim git";
+packages="bash env i3 tmux vim git xresources fish";
 
 for package in $packages; do
 	bash "$package/setup.sh";

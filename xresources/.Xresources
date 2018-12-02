@@ -1,0 +1,10 @@
+xterm*translations: #override \n\
+   Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+   Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
+xterm*faceName: DejaVu Sans Mono
+xterm*faceSize: 14
+xterm*renderFont: true
+xterm*background: rgb:00/2b/36
+xterm*foreground: grey
+xterm*termName: xterm-256color
+xterm*selectToClipboard: true
