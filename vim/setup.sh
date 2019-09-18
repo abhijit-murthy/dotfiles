@@ -3,18 +3,13 @@
 SCRIPT_PATH=$(realpath $0)
 DIR=$(dirname $SCRIPT_PATH)
 
-if ! hash vim; then
-	echo "install vim!";
+if ! hash nvim; then
+	echo "install neovim!";
 	exit 1;
 fi
 
-if ! hash ack; then
-	echo "ack missing, installing";
-	curl https://beyondgrep.com/ack-2.18-single-file > ~/bin/ack && chmod 0755 ~/bin/ack;
-fi
-
-if [ ! -e ~/.vimrc ]; then
-	ln -s "$DIR/.vim/" ~/;
-	ln -s "$DIR/.vimrc" ~/;
-	ln -s "$DIR/.vimrc-c++" ~/;
+if [ ! -e ~/.config/nvim ]; then
+	mkdir -p ~/.config/nvim
+	ln -s "$DIR/init.vim" ~/.config/nvim/init.vim;
+	ln -s "$DIR/autoload" ~/.config/nvim/;
 fi
