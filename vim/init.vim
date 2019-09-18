@@ -1,5 +1,7 @@
 set exrc
 call plug#begin()
+Plug 'vimwiki/vimwiki'
+Plug 'embear/vim-foldsearch'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -25,20 +27,36 @@ set smartcase
 set incsearch
 set ignorecase
 
+set expandtab
+set shiftwidth=4
+set tabstop=4
 set nowrap
-set tabstop=8
+set tabstop=4
 set autoindent
 set backspace=indent,eol,start
 set copyindent
-set shiftwidth=8
 set showmatch
 set smarttab
 
 set cinoptions+=(0
+let g:foldsearch_highlight = 1
+let g:foldsearch_disable_mappings = 1
+noremap <leader>fp :Fp \v
+noremap <leader>fl zX
+noremap <leader>fu zv
+noremap <leader>foa zR
 
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
 inoremap {}     {}
+nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
+noremap <leader>t :tabnew<CR>
+noremap <leader><Left> :tabprevious<CR>
+noremap <leader><Right> :tabnext<CR>
 
 set rtp+=~/.fzf
+if filereadable("~/.config/nvim/custom_settings.vim")
+    "Put super secret work stuff here
+    source /home/ANT.AMAZON.COM/amurthy/.config/nvim/custom_settings.vim
+endif
