@@ -5,10 +5,10 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
-syntax on
+filetype plugin on
 filetype plugin indent on
-colorscheme desert256v2
-set background=dark
+syntax on
+colorscheme space-vim-dark
 
 set autoread
 
@@ -16,7 +16,6 @@ set number
 
 nmap <CR> G
 
-filetype plugin on
 
 set list
 set listchars=""
