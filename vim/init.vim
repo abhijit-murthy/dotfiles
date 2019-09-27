@@ -14,7 +14,7 @@ colorscheme space-vim-dark
 
 set autoread
 
-set number
+set number relativenumber
 
 nmap <CR> G
 
@@ -51,12 +51,18 @@ inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
 inoremap {}     {}
 nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
-noremap <leader>t :tabnew<CR>
-noremap <leader><Left> :tabprevious<CR>
-noremap <leader><Right> :tabnext<CR>
+noremap <leader><Left> :bprevious<CR>
+noremap <leader><Right> :bnext<CR>
 
 set rtp+=~/.fzf
 if filereadable("~/.config/nvim/custom_settings.vim")
     "Put super secret work stuff here
     source /home/ANT.AMAZON.COM/amurthy/.config/nvim/custom_settings.vim
 endif
+" Fuck you, learn the movement keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
