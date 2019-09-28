@@ -66,4 +66,3 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-tnoremap <Esc> <C-\><C-n>
