@@ -51,8 +51,8 @@ inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
 inoremap {}     {}
 nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
-noremap <leader><Left> :bprevious<CR>
-noremap <leader><Right> :bnext<CR>
+noremap <leader>h :bprevious<CR>
+noremap <leader>l :bnext<CR>
 
 set rtp+=~/.fzf
 if filereadable("~/.config/nvim/custom_settings.vim")
@@ -66,3 +66,4 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+tnoremap <Esc> <C-\><C-n>
