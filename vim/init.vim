@@ -4,6 +4,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'embear/vim-foldsearch'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
