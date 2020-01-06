@@ -1,4 +1,10 @@
-tmux attach -t perma-session || tmux new-session -s perma-session
+if [ -z "$TMUX" ]; then
+    tmux has-session -t perma-session;
+    if ! [ "$?" == "0" ]; then
+        tmux new-session -s perma-session;
+    fi
+    tmux attach -t perma-session;
+fi
 PATH=$PATH:~/bin
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
