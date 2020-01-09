@@ -54,6 +54,7 @@ inoremap {}     {}
 nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
 noremap <leader>h :bprevious<CR>
 noremap <leader>l :bnext<CR>
+nnoremap <leader>f :NERDTreeToggleVCS<CR>
 
 set rtp+=~/.fzf
 if filereadable("~/.config/nvim/custom_settings.vim")
