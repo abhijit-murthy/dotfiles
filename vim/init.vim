@@ -6,6 +6,9 @@ Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 filetype plugin on
@@ -16,9 +19,6 @@ colorscheme space-vim-dark
 set autoread
 
 set number relativenumber
-
-nmap <CR> G
-
 
 set list
 set listchars=""
