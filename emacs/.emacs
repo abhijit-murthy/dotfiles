@@ -91,22 +91,25 @@
     (evil-leader/set-key "bb" 'helm-mini)
     (evil-leader/set-key "ps" 'helm-projectile-grep)
     (evil-leader/set-key "pf" 'helm-projectile-find-file)
+    (evil-leader/set-key "pc" 'projectile-compile-project)
+    (evil-leader/set-key "p!" 'projectile-run-shell-command-in-root)
     (evil-leader/set-key "op" 'neotree-toggle)
     (evil-leader/set-key "gs" 'magit-status))
 
   (define-key evil-ex-map "e" 'helm-find-files)
 
-  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
-  (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
-  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
-  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
-  (evil-define-key 'normal neotree-mode-map (kbd "g") 'neotree-refresh)
-  (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
-  (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
-  (evil-define-key 'normal neotree-mode-map (kbd "C") 'neotree-create-node)
-  (evil-define-key 'normal neotree-mode-map (kbd "c") 'neotree-copy-node)
-  (evil-define-key 'normal neotree-mode-map (kbd "m") 'neotree-rename-node)
-  (evil-define-key 'normal neotree-mode-map (kbd "d") 'neotree-delete-node)
+  (evil-add-hjkl-bindings neotree-mode-map 'normal 
+    (kbd "TAB") 'neotree-enter
+    (kbd "SPC") 'neotree-quick-look
+    (kbd "q") 'neotree-hide
+    (kbd "RET") 'neotree-enter
+    (kbd "g") 'neotree-refresh
+    (kbd "A") 'neotree-stretch-toggle
+    (kbd "H") 'neotree-hidden-file-toggle
+    (kbd "C") 'neotree-create-node
+    (kbd "c") 'neotree-copy-node
+    (kbd "m") 'neotree-rename-node
+    (kbd "d") 'neotree-delete-node)
 
   (use-package evil-org
     :ensure t
