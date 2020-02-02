@@ -1,0 +1,148 @@
+; Remove toolbars and scrollbars
+(tool-bar-mode -1)
+(toggle-scroll-bar -1)
+
+(show-paren-mode 1)
+
+; Add MELPA
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives
+	     '("MELPA" .
+	       "http://melpa.milkbox.net/packages/"))
+(package-initialize)
+
+; Bootstrap use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
+
+; linum-relative - relative line numbering
+(use-package linum-relative
+  :ensure t
+  :config
+  (linum-mode)
+  (linum-relative-global-mode))
+
+; Company - for auto-complete
+(use-package company
+  :ensure t)
+  
+; Rust modes
+(use-package rust-mode
+  :ensure t
+  :config
+  ; Racer - for Rust auto-complete
+  (use-package racer
+    :ensure t
+    :config
+    (add-hook 'rust-mode-hook #'racer-mode)
+    (add-hook 'racer-mode-hook #'eldoc-mode)
+    (add-hook 'racer-mode-hook #'company-mode)))
+
+; Org modes
+(use-package org
+  :ensure t
+  :config
+  (setq org-default-notes-file "~/Documents/org-files/notes.org")
+  ; Org Bullets - for shiny utf-8 bullets
+  (use-package org-bullets
+    :ensure t
+    :config
+    (add-hook 'org-mode-hook (lambda ()
+			       (org-bullets-mode 1)))))
+
+; Neotree - for file manager stuff
+(use-package neotree
+  :ensure t)
+
+; Projectile - project autodiscovery and search
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-mode +1))
+
+; Helm - completion mini-buffers
+(use-package helm
+  :ensure t
+  :config
+  (use-package helm-projectile
+    :ensure t))
+
+; Magit - makes git better
+(use-package magit
+  :ensure t)
+
+; Extensible VI Layer
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode 1)
+
+  ; evil-leader - For easy leader key mapping
+  (use-package evil-leader
+    :ensure t
+    :config
+    (global-evil-leader-mode)
+    (evil-leader/set-leader "<SPC>")
+    (evil-leader/set-key "x" 'helm-M-x)
+    (evil-leader/set-key "bb" 'helm-mini)
+    (evil-leader/set-key "ps" 'helm-projectile-grep)
+    (evil-leader/set-key "pf" 'helm-projectile-find-file)
+    (evil-leader/set-key "op" 'neotree-toggle)
+    (evil-leader/set-key "gs" 'magit-status))
+
+  (define-key evil-ex-map "e" 'helm-find-files)
+
+  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
+  (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
+  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
+  (evil-define-key 'normal neotree-mode-map (kbd "g") 'neotree-refresh)
+  (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
+  (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
+  (evil-define-key 'normal neotree-mode-map (kbd "C") 'neotree-create-node)
+  (evil-define-key 'normal neotree-mode-map (kbd "c") 'neotree-copy-node)
+  (evil-define-key 'normal neotree-mode-map (kbd "m") 'neotree-rename-node)
+  (evil-define-key 'normal neotree-mode-map (kbd "d") 'neotree-delete-node)
+
+  (use-package evil-org
+    :ensure t
+    :after org
+    :config
+    (add-hook 'org-mode-hook 'evil-org-mode)
+    (add-hook 'evil-org-mode-hook
+	      (lambda ()
+		(evil-org-set-key-theme)))
+    (require 'evil-org-agenda)
+    (evil-org-agenda-set-keys))
+
+  (use-package evil-magit
+    :ensure t))
+  
+(use-package doom-themes
+  :ensure t
+  :config
+  (setq doom-themes-enable-bold t
+	doom-themes-enable-italic t)
+  (load-theme 'doom-one t))
+
+(use-package doom-modeline
+  :ensure t
+  :hook
+  (after-init . doom-modeline-mode))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (helm))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
