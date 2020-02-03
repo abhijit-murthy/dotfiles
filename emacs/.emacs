@@ -19,6 +19,16 @@
 (eval-when-compile
   (require 'use-package))
 
+(use-package elfeed
+  :ensure t
+  :config
+  (setq elfeed-feeds
+	'("http://www.reddit.com/r/offlinetv/new/.rss?sort=new"
+	  "http://www.reddit.com/r/programming/.rss"
+	  "http://www.reddit.com/r/linux/.rss"
+	  "http://www.reddit.com/r/cpp/.rss"
+	  "https://news.ycombinator.com/rss")))
+
 ; linum-relative - relative line numbering
 (use-package linum-relative
   :ensure t
@@ -111,6 +121,14 @@
     (kbd "m") 'neotree-rename-node
     (kbd "d") 'neotree-delete-node)
 
+  (add-to-list 'evil-emacs-state-modes 'elfeed-search-mode)
+  (add-to-list 'evil-emacs-state-modes 'elfeed-show-mode)
+  (evil-add-hjkl-bindings elfeed-search-mode-map 'emacs
+    (kbd "/") 'evil-search-forward
+    (kbd "n") 'evil-search-next
+    (kbd "N") 'evil-search-previous)
+
+
   (use-package evil-org
     :ensure t
     :after org
@@ -142,7 +160,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (helm))))
+ '(package-selected-packages (quote (elfeed helm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
