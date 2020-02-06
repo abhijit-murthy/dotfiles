@@ -101,6 +101,8 @@
     (evil-leader/set-key "bb" 'helm-mini)
     (evil-leader/set-key "ps" 'helm-projectile-grep)
     (evil-leader/set-key "pf" 'helm-projectile-find-file)
+    (evil-leader/set-key "pb" 'helm-projectile-switch-to-buffer)
+    (evil-leader/set-key "pk" 'projectile-kill-buffers)
     (evil-leader/set-key "pc" 'projectile-compile-project)
     (evil-leader/set-key "p!" 'projectile-run-shell-command-in-root)
     (evil-leader/set-key "op" 'neotree-toggle)
