@@ -1,6 +1,7 @@
 ; Remove toolbars and scrollbars
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
+(setq backup-directory-alist '((""."~/.emacs.d/backup")))
 
 (show-paren-mode 1)
 
@@ -72,7 +73,8 @@
 (use-package projectile
   :ensure t
   :config
-  (projectile-mode +1))
+  (projectile-mode +1)
+  (setq projectile-switch-project-action 'neotree-projectile-action))
 
 ; Helm - completion mini-buffers
 (use-package helm
@@ -100,6 +102,7 @@
     (evil-leader/set-key "x" 'helm-M-x)
     (evil-leader/set-key "bb" 'helm-mini)
     (evil-leader/set-key "ps" 'helm-projectile-grep)
+    (evil-leader/set-key "pp" 'helm-projectile-switch-project)
     (evil-leader/set-key "pf" 'helm-projectile-find-file)
     (evil-leader/set-key "pb" 'helm-projectile-switch-to-buffer)
     (evil-leader/set-key "pk" 'projectile-kill-buffers)
