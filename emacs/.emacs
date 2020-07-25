@@ -1,3 +1,5 @@
+(setq inhibit-splash-screen t)
+(add-to-list 'default-frame-alist '(alpha . (80 . 75)))
 ; Remove toolbars and scrollbars
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
@@ -20,6 +22,11 @@
 (eval-when-compile
   (require 'use-package))
 
+(use-package smart-tabs-mode
+  :ensure t
+  :config
+  (smart-tabs-insinuate 'c++))
+
 (use-package elfeed
   :ensure t
   :config
@@ -39,6 +46,7 @@
 
 ; Company - for auto-complete
 (use-package company
+
   :ensure t)
   
 ; Rust modes
@@ -58,6 +66,15 @@
   :ensure t
   :config
   (setq org-default-notes-file "~/Documents/org-files/notes.org")
+  (add-hook 'after-init-hook '(lambda ()
+				(org-agenda-list 1)
+				(delete-other-windows)))
+  (setq org-agenda-files '("~/Documents/journal.org"
+			   "~/todo.org"))
+  (setq org-capture-templates
+	'(("j" "Journal" entry (file+olp+datetree "~/Documents/journal.org") "* %?\n")
+	  ("t" "todo" entry (file+headline "~/todo.org" "Tasks") "* TODO %?\n%a")
+	  ("n" "Note Down" entry (file+headline "~/Documents/notes.org" "Notes") "* %?\n%a")))
   ; Org Bullets - for shiny utf-8 bullets
   (use-package org-bullets
     :ensure t
@@ -90,6 +107,8 @@
 ; Extensible VI Layer
 (use-package evil
   :ensure t
+  :init
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode 1)
 
@@ -99,6 +118,7 @@
     :config
     (global-evil-leader-mode)
     (evil-leader/set-leader "<SPC>")
+    (evil-leader/set-key "c" 'org-capture)
     (evil-leader/set-key "x" 'helm-M-x)
     (evil-leader/set-key "bb" 'helm-mini)
     (evil-leader/set-key "ps" 'helm-projectile-grep)
@@ -109,6 +129,7 @@
     (evil-leader/set-key "pc" 'projectile-compile-project)
     (evil-leader/set-key "p!" 'projectile-run-shell-command-in-root)
     (evil-leader/set-key "op" 'neotree-toggle)
+    (evil-leader/set-key "ao" 'org-agenda)
     (evil-leader/set-key "gs" 'magit-status))
 
   (define-key evil-ex-map "e" 'helm-find-files)
@@ -145,6 +166,14 @@
     (require 'evil-org-agenda)
     (evil-org-agenda-set-keys))
 
+  (use-package evil-collection
+    :after (evil helm mu4e)
+    :ensure t
+    :config
+    (evil-collection-init)
+    :init
+    (setq evil-collection-setup-minibuffer t))
+
   (use-package evil-magit
     :ensure t))
   
@@ -153,12 +182,23 @@
   :config
   (setq doom-themes-enable-bold t
 	doom-themes-enable-italic t)
-  (load-theme 'doom-one t))
+  (load-theme 'doom-gruvbox t))
 
 (use-package doom-modeline
   :ensure t
   :hook
   (after-init . doom-modeline-mode))
+
+(setq mu4e-maildir "~/mail")
+(setq mu4e-sent-folder "/synced/Sent Items"
+    mu4e-drafts-folder "/synced/Drafts"
+    mu4e-trash-folder  "/synced/Deleted Items"
+    user-mail-address "amurthy@amazon.com")
+(setq mu4e-get-mail-command "offlineimap"
+    ;; mu4e-update-interval 300 ;; I found updating interval is quite annoying; prefer to use "U" to do that explicitly
+    message-kill-buffer-on-exit t)
+
+(setq mu4e-html2text-command "w3m -T text/html")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

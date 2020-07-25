@@ -25,9 +25,6 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -173,8 +170,9 @@ bindsym $mod+Shift+Escape mode "$mode_system"
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id gnome-screensaver
 exec --no-startup-id pasystray
-exec --no-startup-id compton
 exec --no-startup-id variety
+exec --no-startup-id compton
+exec --no-startup-id nm-applet
 for_window [window_role="pop-up"] floating enable
 focus_follows_mouse no
 bindsym XF86AudioPlay exec playerctl play-pause
