@@ -1,5 +1,5 @@
 set exrc
-call plug#begin()
+call plug#begin('~/dotfiles/vim/plugged')
 Plug 'vimwiki/vimwiki'
 Plug 'embear/vim-foldsearch'
 Plug 'flazz/vim-colorschemes'
@@ -9,6 +9,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'norcalli/nvim-terminal.lua'
 call plug#end()
 
@@ -55,7 +57,7 @@ inoremap {}     {}
 nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
 noremap <leader>h :bprevious<CR>
 noremap <leader>l :bnext<CR>
-nnoremap <leader>f :NERDTreeToggleVCS<CR>
+nnoremap <leader>f :NERDTreeToggle<CR>
 
 set rtp+=~/.fzf
 if filereadable("~/.config/nvim/custom_settings.vim")
