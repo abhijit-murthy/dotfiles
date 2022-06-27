@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+#nvimpager - User neovim as a terminal pager (a la less)
+
+nvim +'setl ft=terminal'

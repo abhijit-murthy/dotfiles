@@ -1,6 +1,6 @@
 [core]
 	editor = nvim
-	pager = less -FMRiX
+	pager = nvimpager
 [color]
 	ui = auto
 [alias]

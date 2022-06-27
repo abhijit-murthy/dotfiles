@@ -9,6 +9,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'norcalli/nvim-terminal.lua'
 call plug#end()
 
 filetype plugin on
@@ -68,3 +69,15 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+
+lua require('terminal').setup()
+augroup FileTypeTerminal
+    autocmd!
+    autocmd FileType terminal set buftype=nofile
+    autocmd BufEnter * autocmd FileType terminal
+      \ setlocal concealcursor=nc |
+      \ set readonly
+    autocmd BufLeave * autocmd FileType terminal
+      \ setlocal concealcursor="" |
+      \ set noreadonly
+augroup END
