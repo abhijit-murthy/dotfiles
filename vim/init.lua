@@ -1,13 +1,11 @@
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/dotfiles/vim/plugged')
-Plug 'vimwiki/vimwiki'
 Plug 'embear/vim-foldsearch'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug('neoclide/coc.nvim', {branch = 'release'})
-Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -45,6 +43,12 @@ let g:foldsearch_highlight = 1
 let g:foldsearch_disable_mappings = 1
 
 set rtp+=~/.fzf
+
+set mouse=a
+
+let NERDTreeShowBookmarks = 1
+
+let g:coc_global_extensions = [ 'coc-clangd' ]
 ]])
 
 vim.api.nvim_set_keymap('', '<Up>', '<Nop>', { noremap = true })
@@ -66,3 +70,4 @@ vim.api.nvim_set_keymap('', '<leader>fu', 'zv', {noremap = true})
 vim.api.nvim_set_keymap('', '<leader>foa', 'zR', {noremap = true})
 
 require('nvim-terminal')
+require('coc')
