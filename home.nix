@@ -48,6 +48,9 @@
     };
   };
 
+  home.sessionPath = [
+    "$HOME/.cargo/bin"
+  ];
 
   home.file.".config/nvim".source = ./vim;
   home.file.".tmux.conf".source = ./tmux/.tmux.conf;
