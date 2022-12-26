@@ -15,10 +15,10 @@ if ! command -v nix-shell 2>&1 1>/dev/null; then
        rm -r ~/.config/nixpkgs;
    fi
    ln -s $SCRIPT_DIR ~/.config/nixpkgs
-   echo "source $HOME/.nix-profile/etc/profile.d/nix.sh" >> ~/.bashrc
+   echo "source \$HOME/.nix-profile/etc/profile.d/nix.sh" >> ~/.bashrc
    mkdir -p ~/bin;
    cp $SCRIPT_DIR/launch_env ~/bin;
-   echo "export PATH=$PATH:~/bin" >> ~/.bashrc;
+   echo "export PATH=\$PATH:~/bin" >> ~/.bashrc;
    sed -i "s/USERNAME_HERE/$USER" home.nix
 fi
 
