@@ -48,7 +48,7 @@ set mouse=a
 
 let NERDTreeShowBookmarks = 1
 
-let g:coc_global_extensions = [ 'coc-clangd', 'coc-rls' ]
+let g:coc_global_extensions = [ 'coc-clangd', 'coc-rust-analyzer' ]
 ]])
 
 vim.api.nvim_set_keymap('', '<Up>', '<Nop>', { noremap = true })
