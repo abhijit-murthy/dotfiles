@@ -16,7 +16,7 @@ vim.cmd([[
 filetype plugin on
 filetype plugin indent on
 syntax on
-colorscheme space-vim-dark
+colorscheme gruvbox
 
 set autoread
 
