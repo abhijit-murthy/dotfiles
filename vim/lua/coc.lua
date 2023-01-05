@@ -28,6 +28,10 @@ vim.cmd([[
       return !col || getline('.')[col - 1]  =~# '\s'
     endfunction
 
+    " Use Enter to select completion option
+    inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
     " Use <c-space> to trigger completion.
     inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -44,6 +48,17 @@ vim.cmd([[
 
     " Highlight the symbol and its references when holding the cursor.
     autocmd CursorHold * silent call CocActionAsync('highlight')
+
+    " Use K to show documentation in preview window
+    nnoremap <silent> K :call ShowDocumentation()<CR>
+
+    function! ShowDocumentation()
+      if CocAction('hasProvider', 'hover')
+        call CocActionAsync('doHover')
+      else
+        call feedkeys('K', 'in')
+      endif
+    endfunction
 
     " Symbol renaming.
     nmap <leader>rn <Plug>(coc-rename)
