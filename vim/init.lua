@@ -5,11 +5,24 @@ Plug 'embear/vim-foldsearch'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug('neoclide/coc.nvim', {branch = 'release'})
 Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'norcalli/nvim-terminal.lua'
+-- Installs LSP servers
+Plug 'williamboman/mason.nvim'
+-- Configures LSP client
+Plug 'neovim/nvim-lspconfig'
+-- Autocomplete implementation
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+-- Snippet Engine
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+
 vim.call('plug#end')
 
 vim.cmd([[
@@ -48,7 +61,6 @@ set mouse=a
 
 let NERDTreeShowBookmarks = 1
 
-let g:coc_global_extensions = [ 'coc-clangd', 'coc-rust-analyzer' ]
 ]])
 
 vim.api.nvim_set_keymap('', '<Up>', '<Nop>', { noremap = true })
@@ -70,4 +82,4 @@ vim.api.nvim_set_keymap('', '<leader>fu', 'zv', {noremap = true})
 vim.api.nvim_set_keymap('', '<leader>foa', 'zR', {noremap = true})
 
 require('nvim-terminal')
-require('coc')
+require('lsp')
