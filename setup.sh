@@ -19,7 +19,7 @@ if ! command -v nix-shell 2>&1 1>/dev/null; then
    mkdir -p ~/bin;
    cp $SCRIPT_DIR/launch_env ~/bin;
    echo "export PATH=\$PATH:~/bin" >> ~/.bashrc;
-   sed -i "s/USERNAME_HERE/$USER" home.nix
+   git config --global include.path ~/.gitconfig.custom
 fi
 
 
