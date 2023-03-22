@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+FILE=$(rg --vimgrep "$1" | fzf)
+FILENAME=$(echo $FILE | cut -d ":" -f1)
+LINENUMBER=$(echo $FILE | cut -d ":" -f2)
+echo $FILENAME
+echo $LINENUMBER
+nvim +$LINENUMBER $FILENAME
