@@ -27,6 +27,9 @@
         # the system zsh). Clear this so
         # tmux starts the nix zsh by default.
         set -g default-command ""
+
+	setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
+	set -g update-environment -r
     '';
   };
 }

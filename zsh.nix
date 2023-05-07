@@ -6,7 +6,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableAutosuggestions = true;
+    enableAutosuggestions = false;
     history.extended = true;
     sessionVariables = rec {
         EDITOR = "nvim";

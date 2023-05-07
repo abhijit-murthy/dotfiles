@@ -9,6 +9,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'norcalli/nvim-terminal.lua'
+Plug 'tpope/vim-sleuth'
 -- Installs LSP servers
 Plug 'williamboman/mason.nvim'
 -- Configures LSP client
@@ -27,11 +28,11 @@ Plug 'arkav/lualine-lsp-progress'
 -- Status Line
 Plug 'nvim-lualine/lualine.nvim'
 
+Plug 'skywind3000/asyncrun.vim'
 vim.call('plug#end')
 
 vim.cmd([[
 filetype plugin on
-filetype plugin indent on
 syntax on
 colorscheme gruvbox
 
@@ -47,11 +48,11 @@ set smartcase
 set incsearch
 set ignorecase
 
-set expandtab
 set nowrap
 set autoindent
 set backspace=indent,eol,start
 set copyindent
+set preserveindent
 set showmatch
 set smarttab
 
@@ -65,6 +66,7 @@ set mouse=a
 
 let NERDTreeShowBookmarks = 1
 
+let g:asyncrun_open = 1
 ]])
 
 vim.api.nvim_set_keymap('', '<Up>', '<Nop>', { noremap = true })
@@ -87,4 +89,5 @@ vim.api.nvim_set_keymap('', '<leader>foa', 'zR', {noremap = true})
 
 require('nvim-terminal')
 require('lsp')
+require('arcOS').setup()
 require('statusline')
