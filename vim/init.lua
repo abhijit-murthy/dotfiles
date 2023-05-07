@@ -22,6 +22,10 @@ Plug 'hrsh7th/nvim-cmp'
 -- Snippet Engine
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+-- LSP status bar
+Plug 'arkav/lualine-lsp-progress'
+-- Status Line
+Plug 'nvim-lualine/lualine.nvim'
 
 vim.call('plug#end')
 
@@ -83,3 +87,4 @@ vim.api.nvim_set_keymap('', '<leader>foa', 'zR', {noremap = true})
 
 require('nvim-terminal')
 require('lsp')
+require('statusline')
