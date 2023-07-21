@@ -27,6 +27,9 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'arkav/lualine-lsp-progress'
 -- Status Line
 Plug 'nvim-lualine/lualine.nvim'
+-- Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.1' })
 
 Plug 'skywind3000/asyncrun.vim'
 vim.call('plug#end')
