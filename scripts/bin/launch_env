@@ -1,6 +1,5 @@
 #!/bin/bash
 
-home-manager switch;
 if [ -z "$TMUX" ]; then
     tmux has-session -t perma-session;
     if ! [ "$?" == "0" ]; then

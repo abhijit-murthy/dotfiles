@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+declare -A PROGS
+PROGS["i3"]="/home/amurthy/.config/i3/config"
+PROGS["picom"]="/home/amurthy/.config/picom/picom.conf"
+PROGS["rofi"]="/home/amurthy/.config/rofi/config.rasi"
+PROGS["nix"]="/home/amurthy/dotfiles/home.nix"
+PROGS["polybar"]="/home/amurthy/.config/polybar/config.ini"
+PROGS["polybar_launch"]="/home/amurthy/.config/polybar/launch.sh"
+
+if [ $# -eq 0 ]
+then
+ echo "${!PROGS[@]}" | sed -e 's/ /\n/g'
+else
+        source /home/amurthy/.nix-profile/etc/profile.d/nix.sh
+        coproc ( alacritty -e nvim ${PROGS[$1]}; > /dev/null 2>&1 )
+fi

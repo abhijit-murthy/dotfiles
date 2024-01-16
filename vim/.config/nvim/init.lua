@@ -1,6 +1,6 @@
 local Plug = vim.fn['plug#']
 
-vim.call('plug#begin', '~/dotfiles/vim/plugged')
+vim.call('plug#begin')
 Plug 'embear/vim-foldsearch'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'

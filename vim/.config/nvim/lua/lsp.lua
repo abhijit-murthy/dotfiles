@@ -98,6 +98,11 @@ require('lspconfig')['rust_analyzer'].setup{
         capabilities = capabilities,
 }
 
+require('lspconfig')['texlab'].setup{
+        on_attach = on_attach,
+        capabilities = capabilities,
+}
+
 require('telescope').setup()
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', 'gs', builtin.lsp_document_symbols, {})

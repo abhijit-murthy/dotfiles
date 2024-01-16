@@ -1,2 +1,3 @@
-vim/plugged
+vim/.config/nvim/plugged
+tmux/.config/tmux/plugins
 home.nix
