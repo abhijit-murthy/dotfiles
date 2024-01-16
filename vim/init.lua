@@ -9,6 +9,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'norcalli/nvim-terminal.lua'
+Plug 'tpope/vim-sleuth'
 -- Installs LSP servers
 Plug 'williamboman/mason.nvim'
 -- Configures LSP client
@@ -26,6 +27,9 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'arkav/lualine-lsp-progress'
 -- Status Line
 Plug 'nvim-lualine/lualine.nvim'
+-- Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.1' })
 
 vim.call('plug#end')
 
@@ -80,7 +84,7 @@ vim.api.nvim_set_keymap('i', '{<CR>', '{<CR>}<Esc>O', {noremap = true})
 vim.api.nvim_set_keymap('', '<leader>f', ':NERDTreeToggle<CR>', {noremap = true})
 
 -- Foldsearch keybindings
-vim.api.nvim_set_keymap('', '<leader>fp', ':Fp \v', {noremap = true})
+vim.api.nvim_set_keymap('', '<leader>fp', ':Fp', {noremap = true})
 vim.api.nvim_set_keymap('', '<leader>fl', 'zX', {noremap = true})
 vim.api.nvim_set_keymap('', '<leader>fu', 'zv', {noremap = true})
 vim.api.nvim_set_keymap('', '<leader>foa', 'zR', {noremap = true})
