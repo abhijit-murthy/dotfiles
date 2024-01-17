@@ -4,7 +4,7 @@
 plugins=(vi-mode)
 
 ZSH_THEME="af-magic"
-source $ZSH/oh-my-zsh.sh
+source ~/.oh-my-zsh/oh-my-zsh.sh
 
 
 
