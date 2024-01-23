@@ -4,7 +4,6 @@ vim.call('plug#begin')
 Plug 'embear/vim-foldsearch'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -29,7 +28,7 @@ Plug 'arkav/lualine-lsp-progress'
 Plug 'nvim-lualine/lualine.nvim'
 -- Telescope
 Plug 'nvim-lua/plenary.nvim'
-Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.1' })
+Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.5' })
 
 vim.call('plug#end')
 
@@ -80,9 +79,6 @@ vim.api.nvim_set_keymap('i', '{', '{}<Left>', { noremap = true })
 vim.api.nvim_set_keymap('i', '{<CR>', '{<CR>}<Esc>O', {noremap = true})
 
 
--- NERDTree mappings
-vim.api.nvim_set_keymap('', '<leader>f', ':NERDTreeToggle<CR>', {noremap = true})
-
 -- Foldsearch keybindings
 vim.api.nvim_set_keymap('', '<leader>fp', ':Fp', {noremap = true})
 vim.api.nvim_set_keymap('', '<leader>fl', 'zX', {noremap = true})
@@ -92,3 +88,4 @@ vim.api.nvim_set_keymap('', '<leader>foa', 'zR', {noremap = true})
 require('nvim-terminal')
 require('lsp')
 require('statusline')
+require('telescope-bindings')
