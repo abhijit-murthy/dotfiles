@@ -7,7 +7,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'norcalli/nvim-terminal.lua'
 Plug 'tpope/vim-sleuth'
 -- Installs LSP servers
 Plug 'williamboman/mason.nvim'
@@ -85,7 +84,6 @@ vim.api.nvim_set_keymap('', '<leader>fl', 'zX', {noremap = true})
 vim.api.nvim_set_keymap('', '<leader>fu', 'zv', {noremap = true})
 vim.api.nvim_set_keymap('', '<leader>foa', 'zR', {noremap = true})
 
-require('nvim-terminal')
 require('lsp')
 require('statusline')
 require('telescope-bindings')
